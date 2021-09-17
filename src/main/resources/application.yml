@@ -1,0 +1,34 @@
+﻿server:
+  port: 7000
+
+eureka:
+  server:
+    enableSelfPreservation: false #关闭自我保护主要
+    evictionIntervalTimerInMs: 60000
+  instance:
+    preferIpAddress: true
+    hostname: 127.0.0.1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  security:
+    basic:
+      enabled: true
+    user:
+      name: admin
+      password: admin
+
+monitor:
+  sms:
+    regionId: cn-hangzhou
+    url: dysmsapi.aliyuncs.com
+    apiId: LTAI5t6PgThpzgAE1CCxT13f
+    apiKey: HjRzFVIkPldz6cEhsQ3rhsDgQ9doRY
+    cityName: 演示
+    signName: 小姜测试
+    templateCode: SMS_217240269
+    userPhone: 18629429524,18092806405,18710170771,18710300171,18789450661
